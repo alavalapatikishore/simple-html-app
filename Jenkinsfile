@@ -2,46 +2,52 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "simple-html-image"
-        CONTAINER_NAME = "simple-html-container"
+        DOCKER_IMAGE = "simple-html-app"
+        GITHUB_URL = "https://github.com/alavalapatikishore/simple-html-app.git"
+        BRANCH = "master"
+        CONTAINER_NAME = "html-app-container"
     }
 
     stages {
 
         stage('Pull Code from GitHub') {
             steps {
-                git branch: 'master',
-                url: 'https://github.com/alavalapatikishore/simple-html-app.git'
+                echo "Pulling latest code from GitHub..."
+                git branch: "${BRANCH}", url: "${GITHUB_URL}"
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh "docker build -t ${IMAGE_NAME}:latest ."
+                echo "Building Docker image..."
+                sh """
+                    docker build -t ${DOCKER_IMAGE}:latest .
+                """
             }
         }
 
         stage('Stop & Remove Old Container') {
             steps {
+                echo "Stopping old container if exists..."
                 sh """
-                if [ \$(docker ps -aq -f name=${CONTAINER_NAME}) ]; then
-                    docker stop ${CONTAINER_NAME} || true
-                    docker rm ${CONTAINER_NAME} || true
-                fi
+                    docker rm -f ${CONTAINER_NAME} || true
                 """
             }
         }
 
         stage('Run New Container') {
             steps {
-                sh "docker run -d -p 80:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:latest"
+                echo "Running new container..."
+                sh """
+                    docker run -d --name ${CONTAINER_NAME} -p 8080:80 ${DOCKER_IMAGE}:latest
+                """
             }
         }
     }
 
     post {
         success {
-            echo "Deployment Successful!"
+            echo "Pipeline Success! App running on port 8080"
         }
         failure {
             echo "Pipeline Failed!"
