@@ -2,50 +2,49 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "simple-html"
-        CONTAINER_NAME = "html-container"
+        IMAGE_NAME = "simple-html-image"
+        CONTAINER_NAME = "simple-html-container"
     }
 
     stages {
 
-        stage('Pull Latest Code') {
+        stage('Pull Code from GitHub') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/YOUR_USER/simple-html-app.git'
+                url: 'https://github.com/alavalapatikishore/simple-html-app.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh '''
-                docker build -t ${IMAGE_NAME}:latest .
-                '''
+                sh "docker build -t ${IMAGE_NAME}:latest ."
             }
         }
 
-        stage('Stop Old Container') {
+        stage('Stop & Remove Old Container') {
             steps {
-                sh '''
-                if [ "$(docker ps -q -f name=${CONTAINER_NAME})" ]; then
-                    docker stop ${CONTAINER_NAME}
-                    docker rm ${CONTAINER_NAME}
+                sh """
+                if [ \$(docker ps -aq -f name=${CONTAINER_NAME}) ]; then
+                    docker stop ${CONTAINER_NAME} || true
+                    docker rm ${CONTAINER_NAME} || true
                 fi
-                '''
+                """
             }
         }
 
         stage('Run New Container') {
             steps {
-                sh '''
-                docker run -d --name ${CONTAINER_NAME} -p 80:80 ${IMAGE_NAME}:latest
-                '''
+                sh "docker run -d -p 80:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:latest"
             }
         }
     }
 
     post {
         success {
-            echo "New version deployed successfully!"
+            echo "Deployment Successful!"
+        }
+        failure {
+            echo "Pipeline Failed!"
         }
     }
 }
