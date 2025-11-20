@@ -10,7 +10,7 @@ pipeline {
 
         stage('Pull Code from GitHub') {
             steps {
-                git branch: 'main',
+                git branch: 'master',
                 url: 'https://github.com/alavalapatikishore/simple-html-app.git'
             }
         }
