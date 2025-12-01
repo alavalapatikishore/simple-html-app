@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiceNow Course Syllabuses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            padding-top: 80px; /* Increased padding to prevent overlap with fixed navbar */
+        }
+        header {
+            background-color: #0078d7;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background: #333;
+            color: white;
+            
+            position: fixed; /* Fixing the navbar at the top */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensuring it stays on top */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+            padding: 0px 0; /* Optional padding to make navbar more compact */
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background: #575757;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: rgb(241, 235, 235);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 80px;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h1, h2, h3 {
+            color: #0078d7;
+        }
+        ul {
+            padding-left: 1.5rem;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: white;
+        }
+        button{
+            background-color: red;
+            color: white;
+            font-size: medium;
+            border-radius: 10px;
+            padding: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html"><button>Home</button></a>
+        <a href="#admin">ServiceNow Admin</a>
+        <a href="#developer">ServiceNow Developer</a>
+        <a href="#javascript">JavaScript</a>
+        <a href="#flow">Flow Designer</a>
+        <a href="#virtual">Virtual Agent</a>
+        <a href="#hrsd">HRSD</a>
+        <a href="#itom">ITOM</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#workspace">Workspace</a>
+        
+    </nav>
+    <div class="container">
+
+        <section id="admin">
+            <h2>1. ServiceNow Admin</h2>
+            <h3>Introduction to ServiceNow</h3>
+            <ul>
+                <li>What is ServiceNow?</li>
+                <li>Key benefits of using ServiceNow.</li>
+                <li>Overview of ServiceNow architecture and SaaS model.</li>
+                <li>Introduction to IT Service Management (ITSM).</li>
+            </ul>
+            <h3>Navigating ServiceNow</h3>
+            <ul>
+                <li>Understanding the ServiceNow interface.</li>
+                <li>Using global search and filter navigator.</li>
+                <li>Personalizing your instance with settings and bookmarks.</li>
+            </ul>
+        </section>
+
+        <section id="developer">
+            <h2>2. ServiceNow Developer</h2>
+            <h3>Introduction to Development in ServiceNow</h3>
+            <ul>
+                <li>ServiceNow development basics.</li>
+                <li>Understanding instances and scoped applications.</li>
+                <li>Overview of ServiceNow Studio.</li>
+            </ul>
+            <h3>Client-Side Scripting</h3>
+            <ul>
+                <li>Writing and using Client Scripts.</li>
+                <li>GlideForm and GlideUser APIs.</li>
+                <li>Debugging client-side scripts.</li>
+            </ul>
+        </section>
+
+        <section id="javascript">
+            <h2>3. JavaScript</h2>
+            <h3>Introduction to JavaScript</h3>
+            <ul>
+                <li>Basics of JavaScript syntax.</li>
+                <li>Data types, variables, and operators.</li>
+                <li>Understanding scope and hoisting.</li>
+            </ul>
+            <h3>Control Structures</h3>
+            <ul>
+                <li>If-else statements.</li>
+                <li>Loops (for, while, do-while).</li>
+                <li>Switch cases.</li>
+            </ul>
+        </section>
+
+        <section id="flow">
+            <h2>4. Flow Designer</h2>
+            <h3>Introduction to Flow Designer</h3>
+            <ul>
+                <li>Overview and benefits of Flow Designer.</li>
+                <li>Key components: Triggers, Actions, and Data Pills.</li>
+                <li>Understanding Flow execution.</li>
+            </ul>
+            <h3>Creating Flows</h3>
+            <ul>
+                <li>Setting up triggers and conditions.</li>
+                <li>Designing flow actions.</li>
+                <li>Handling errors and exceptions.</li>
+            </ul>
+        </section>
+
+        <section id="virtual">
+            <h2>5. Virtual Agent</h2>
+            <h3>Introduction to Virtual Agent</h3>
+            <ul>
+                <li>What is Virtual Agent?</li>
+                <li>Use cases for Virtual Agent in ServiceNow.</li>
+                <li>Overview of the Virtual Agent Designer.</li>
+            </ul>
+            <h3>Creating Conversations</h3>
+            <ul>
+                <li>Designing conversation flows.</li>
+                <li>Adding decision trees and branching logic.</li>
+                <li>Configuring dynamic inputs and outputs.</li>
+            </ul>
+        </section>
+
+        <section id="hrsd">
+            <h2>6. HRSD (Human Resources Service Delivery)</h2>
+        </section>
+
+        <section id="itom">
+            <h2>7. ITOM (IT Operations Management)</h2>
+        </section>
+
+        <section id="integrations">
+            <h2>8. Integrations</h2>
+        </section>
+
+        <section id="workspace">
+            <h2>9. Workspace</h2>
+        </section>
+
+        <section id="itil">
+            <h2>10. ITIL (Information Technology Infrastructure Library)</h2>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 KishoreSolutions. All rights reserved.</p>
+    </footer>
+</body>
+</html>
